@@ -1,3 +1,4 @@
+
 function generateletter(){
     ascii = Math.floor((Math.random()) * (122-97))+97; 
     return  String.fromCharCode(ascii)
@@ -56,21 +57,25 @@ function decipher(ciphertext){
             ciphertext=ciphertext.replaceAt(i,newchar);
         }
         //dot.s len=5 i=3 want i=1 5-3-1   a.a12d  i=1 len =6 want i=4 6-1-1
-        else if((ciphertext[i]=='.' || ciphertext[i]==',')){
-            console.log('dot/dash');
-            let temp = ciphertext[i];
-            if(ciphertext[i]==".")
-                temp='!';
-            else if(ciphertext[i]==",")
-                temp=';';
-            console.log('placing:',ciphertext[ciphertext.length-i-1],'at index',i); 
-            ciphertext = ciphertext.replaceAt(i,ciphertext[ciphertext.length-i-1]);
-            // ciphertext[i]=ciphertext[ciphertext.length-i];
-            // ciphertext[ciphertext.length-i]=temp;
-            ciphertext=ciphertext.replaceAt(ciphertext.length-i-1,temp);
-            i--;
-        }
     }
+    for(let i=0;i<length;i++){
+        // for(let i=Math.floor(ciphertext.length/2);i<ciphertext.length;i++){
+            //letter
+           
+            if((ciphertext[i]=='.' || ciphertext[i]==',')){
+                console.log('dot/dash');
+                let temp = ciphertext[i];
+                if(ciphertext[i]==".")
+                    temp='!';
+                else if(ciphertext[i]==",")
+                    temp=';';
+                console.log('placing:',ciphertext[ciphertext.length-i-1],'at index',i); 
+                ciphertext = ciphertext.replaceAt(i,ciphertext[ciphertext.length-i-1]);
+                // ciphertext[i]=ciphertext[ciphertext.length-i];
+                // ciphertext[ciphertext.length-i]=temp;
+                ciphertext=ciphertext.replaceAt(ciphertext.length-i-1,temp);
+            }
+        }
     for(let i=0;i<length;i++){
         if(ciphertext[i]=="!")
             ciphertext=ciphertext.replaceAt(i,'.');
@@ -87,10 +92,15 @@ $('#answer').submit(function(e) {
     
     // $(this).serialize(); will be the serialized form
     //$(this).append($(this).serialize() + '<br />');
-    if($(this).serializeArray()[0].value==deciphertext)
-    console.log('U WIN!'); 
+    if($(this).serializeArray()[0].value==deciphertext){
+        console.log('U WIN!'); 
+        document.getElementById("result").textContent="Your answer is correct!";
+        document.getElementById("Nextbutton").style.opacity=1;
+        document.getElementById("Linkbutton").style.pointerEvents='all';
+    }
     else{
         console.log("Incorrect!, its actually:",deciphertext);
+        document.getElementById("result").textContent="Your answer is incorrect, its actually "+ deciphertext;
     }
 });
 //document.getElementById("waw").textContent="asd";

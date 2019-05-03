@@ -1,0 +1,22 @@
+/* this is a custom css stylesheet */
+body{
+    background-color: lightblue;
+}
+#waw {
+    text-align: center;
+  }
+  #answer {
+    text-align: center;
+  }
+  #result {
+    text-align: center;
+  }
+  #Nextbutton {
+    opacity:0;
+    margin-top: 5%;
+    -webkit-transition:opacity 1s linear;
+    transition: opacity 1s linear;
+  }
+  #Linkbutton{
+      pointer-events: none;
+  }
