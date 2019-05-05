@@ -14,7 +14,7 @@ function generatedot(){
 
 }
 function RandString(){
-    length = Math.floor((Math.random()) * 5)+3;     // returns a random integer from 1 to 10
+    length = Math.floor((Math.random()) * 15)+5;     // returns a random integer from 5 to 20
     let ciphertext ="";
     for(let i=0;i<length;i++){
         if(Math.random()>=0.5)
