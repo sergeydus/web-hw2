@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Calculator</title>
   <link rel="stylesheet" type="text/css" href="calc.css">
 </head>
 
 <body>
-    <script src="calc.js"></script>
     <div class="mycalc">
         <form name="calculator" id="calculator">
-            <input type="text" name="inputwindow" id="inputwindow">
+            <input type="text" name="inputwindow" id="inputwindow" onchange="CheckInput(this.value)"/>
+            <div id="Warning">Error: non number detected</div>
             <div>
-                <form name="select" id="select"></form>>
-                    <select id="mySelect">
+                <form name="select" id="select">
+                    <select id="mySelect" onchange="Changebase()">
                       <option>10</option>
                       <option>9</option>
                       <option>8</option>
@@ -57,6 +58,12 @@
         </div>
 
 </body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="calc.js"></script>
+
 </html>
 
 
